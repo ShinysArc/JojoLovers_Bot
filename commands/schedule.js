@@ -7,6 +7,9 @@ const scheduledSchema = require('../models/scheduled-schema')
 module.exports =
 {
   description: "Commande pour schedule des messages",
+  // expectedArgs: '<Channel tag> <HH:MM> [DD/MM/YYYY] [Timezone]',
+  minArgs: 2,
+  maxArgs: 4,
   type: CommandType.BOTH,
   init: (client) => {
       const checkForPosts = async() => {

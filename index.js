@@ -1,4 +1,4 @@
-const { Client, IntentsBitField } = require("discord.js");
+const { Client, IntentsBitField, Partials } = require("discord.js");
 const WOKCommands = require('wokcommands')
 const path = require('path')
 require('dotenv').config()
@@ -7,7 +7,10 @@ const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildMessages,
-    ]
+        IntentsBitField.Flags.DirectMessages,
+        IntentsBitField.Flags.MessageContent,
+      ],
+    partials: [Partials.Channel],
 })
 
 client.on('ready', () => {
